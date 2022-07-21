@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoID | State Wise Dams</title>
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri&family=Ubuntu&family=Work+Sans&display=swap" rel="stylesheet">
+    <!-- Leaflet style -->
+    <link rel="stylesheet" href="leaflet.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="responsive.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <main>
+        <div class="dam-list">
+            <div class="heading">
+                <h2>Indian Dams</h2>
+                <button class="BackButton"><a href="map.html" >&laquo; Back</a></button>
+                <div class="searchbar">
+                    <form class="dam-search" id="search-bar">
+                        <input type="text" placeholder="Enter Dam Name.." name="search" id="search" style="color: black;">
+                    </form>
+                </div>  
+                <select id="select-state">
+                    <option value=''>Select State</option>
+                </select>
+            </div>
+            <ul id='select-dam' class="list" >
+            </ul>
+        </div>
+        <div id="map" class="map"></div>
+        
+        <button id="coordinateButton" title="Shows coordinates of the mouse pointer on map">
+            <div class="coordinate">
+        </div></button>
+
+    </main>
+    <!-- Leaflet script -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="Control.FullScreen.js"></script>
+    <!-- jQuery -->
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="IndiaState.js"></script>
+    <!-- Search Bar -->
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <!-- Map Script -->
+    <script src="StateWiseMap.js"></script>
+    <!--display coordnates  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

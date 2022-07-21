@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoID | Home</title>
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri&family=Ubuntu&family=Work+Sans&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+    <!-- BackGround Video -->
+    <video id="videoBG" autoplay muted loop>
+        <source src="Images/footage1.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+
+    <!-- Navbar -->
+    <header class="wrapper">
+        <nav class="navbar">
+            <a href="index.html" class="nav-logo"><img src="Images/logo_iitgn.png" class="logo"></a>
+            <ul class="nav-menu">
+                <li class="nav-item" data-li="Home" class="active">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="map.html" class="nav-link">Dams</a>
+                </li>
+                <li class="nav-item">
+                    <a href="RiskAnalysis.html" class="nav-link">Projected Risk</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://hirenrs.users.earthengine.app/view/geoid-lulc-analysis" target="_blank" class="nav-link">LULC Analysis</a>
+                </li>
+                <li class="nav-item" data-li="About">
+                    <a href="#" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item" data-li="Contact">
+                    <a href="#" class="nav-link">Contact Us</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Home -->
+        <div class="item Home">
+            <div class="content">
+                <div class="title1">Welcome to</div>
+                <div class="title2">
+                    <h1>Geoportal of Indian Dams (GeoID)</h1>
+                    <p>Catchment Parameters and Projected Flood Risk of Indian Dams.
+                    </p>
+                </div>
+                <button class="VisitButton"><a href="map.html"><span>Visit Map </span></a></button>
+            </div>
+            <!-- Footer -->
+            <footer class="footer">
+                <ul class="footer-menu">
+                    <li class="footer-item" data-li="term-condition">
+                        <a href="#" class="footer-link">Terms of Use</a>
+                    </li>
+                    <li class="footer-item" data-li="privacy-policy">
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                    </li>
+                    <li class="footer-item" data-li="acknowledgement">
+                        <a href="#" class="footer-link">Acknowledgement</a>
+                    </li>
+                    <li class="footer-item" data-li="Report">
+                        <a href="#" class="footer-link">Report a Risk</a>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+
+        <!-- Our Team -->
+        <div class="item About" style="display: none;">
+            <div class="title">
+                <span class="our-team-main-title">Our Team</span>
+            </div>
+            <div class="our-team-box">
+                <div class="profile-card">
+                    <div class="img">
+                        <img src="Images/vimal mishra.jpg">
+                    </div>
+                    <div class="caption">
+                        <h3>Prof. Vimal Mishra</h3>
+                        <p>Supervisor</p>
+                        <h5>Email: vmishra@iitgn.ac.in</h5>
+
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <div class="img">
+                        <img src="Images/Hiren.jpg">
+                    </div>
+                    <div class="caption">
+                        <h3>Hiren Solanki</h3>
+                        <p>Team Lead</p>
+                        <h5>Email: hirenrs@iitgn.ac.in</h5>
+
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <div class="img">
+                        <img src="Images/Ashwani.jpg">
+                    </div>
+                    <div class="caption">
+                        <h3>Ashwani Rai</h3>
+                        <p>GIS Analyst</p>
+                        <h5>Email: ashwani.rs<br>@iitgn.ac.in</h5>
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <div class="img">
+                        <img src="Images/Arushi.jpg">
+                    </div>
+                    <div class="caption">
+                        <h3>Arushi Arnav</h3>
+                        <p>Risk Assessment Analyst</p>
+                        <h5>Email: arushi.a@iitgn.ac.in</h5>
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <div class="img">
+                        <img src="Images/Aman.png">
+                    </div>
+                    <div class="caption">
+                        <h3>Aman Chaudhary</h3>
+                        <p>Web Developer</p>
+                        <h5>Email: aman.chaudhary<br>@iitgn.ac.in</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+            <footer class="footer">
+                <ul class="footer-menu">
+                    <li class="footer-item" data-li="term-condition">
+                        <a href="#" class="footer-link">Terms of Use</a>
+                    </li>
+                    <li class="footer-item" data-li="privacy-policy">
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                    </li>
+                    <li class="footer-item" data-li="acknowledgement">
+                        <a href="#" class="footer-link">Acknowledgement</a>
+                    </li>
+                    <li class="footer-item" data-li="Report">
+                        <a href="#" class="footer-link">Report a Risk</a>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+
+        <!-- Contact Us -->
+        <div class="item Contact" style="display: none;">
+            <div class="contact-main-title">Contact Us</div>
+            <div class="contact-us">
+                <form action="#" class="contact-form">
+                    <div class="form-field">
+                        <div class="field">
+                            <input type="text" name="name" placeholder="Enter your name">
+                        </div>
+                        <div class="field">
+                            <input type="text" name="email" placeholder="Enter your email">
+                        </div>
+                    </div>
+                    <div class="message">
+                        <textarea placeholder="Write your message" name="message"></textarea>
+                    </div>
+                    <div class="button-area">
+                        <button type="submit">Send Message</button>
+                        <span></span>
+                    </div>
+                </form>
+                
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <ul class="footer-menu">
+                    <li class="footer-item" data-li="term-condition">
+                        <a href="#" class="footer-link">Terms of Use</a>
+                    </li>
+                    <li class="footer-item" data-li="privacy-policy">
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                    </li>
+                    <li class="footer-item" data-li="acknowledgement">
+                        <a href="#" class="footer-link">Acknowledgement</a>
+                    </li>
+                    <li class="footer-item" data-li="Report">
+                        <a href="#" class="footer-link">Report a Risk</a>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+
+        <!--  Terms and Conditions -->
+        <div class="item term-condition" style="display: none;">
+            <div class="portal-policy-home">
+                <div class="portal-policy-title">
+                    Terms & Conditions
+                </div>
+                <div class="portal-policy-content">
+                    <ul class="terms-item">
+                        <li>Though all efforts have been made to ensure the accuracy of the content on this portal,
+                            Users are advised to verify/check any information with the relevant Government department(s)
+                            and/or other source(s), and to obtain any appropriate professional advice before acting on
+                            the information provided in this portal.</li><br>
+                        <li>The work described in this portal is part of an exploratory research effort at Indian
+                            Institute of Technology Gandhinagar, and does not represent the official product of any
+                            Institute, or central, state, or local agency.</li><br>
+                        <li>The authorized use of data from this site is limited to academic and educational purposes
+                            only, and not for operational or commercial purposes. This data is provided "as is" and in
+                            no event shall the providers be liable for any damages, including, without limitation,
+                            damages resulting from lost data or lost profits or revenue, the costs of recovering such
+                            data, the costs of substitute data, claims by third parties or for other similar costs, or
+                            any special, incidental, or consequential damages, arising out of the use of the data. </li><br>
+                        <li>Copyright Policy: Material featured on this portal may be reproduced free of charge after
+                            taking proper permission by sending a mail to us. However, the material has to be reproduced
+                            accurately and not to be used in a derogatory manner or in a misleading context. Wherever
+                            the material is being published or issued to others, the source must be prominently
+                            acknowledged. However, the permission to reproduce this material shall not extend to any
+                            material which is identified as being copyright of a third party. Authorisation to reproduce
+                            such material must be obtained from the departments/copyright holders concerned.</li>
+                    </ul>
+                </div>
+            </div>
+            <footer class="footer">
+                <ul class="footer-menu">
+                    <li class="footer-item" data-li="term-condition">
+                        <a href="#" class="footer-link">Terms of Use</a>
+                    </li>
+                    <li class="footer-item" data-li="privacy-policy">
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                    </li>
+                    <li class="footer-item" data-li="acknowledgement">
+                        <a href="#" class="footer-link">Acknowledgement</a>
+                    </li>
+                    <li class="footer-item" data-li="Report">
+                        <a href="#" class="footer-link">Report a Risk</a>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+
+        <!--  Privacy-Policy -->
+        <div class="item privacy-policy" style="display: none;">
+            <div class="portal-policy-home">
+                <div class="portal-policy-title">
+                    Privacy Policy
+                </div>
+                <div class="portal-policy-content">
+                    <ul class="terms-item">
+                        <li>Geoportal of Indian Dams does not automatically capture any specific personal information
+                            from you, (like name, phone number or e-mail address), that allows us to identify you
+                            individually.</li><br>
+                        <li>Email Management: Your email address will only be recorded if you choose to send a message.
+                            It will only be used for the purpose for which you have provided it and will not be added to
+                            a mailing list. Your email address will not be used for any other purpose, and will not be
+                            disclosed, without your consent.</li><br>
+                        <li>We do not sell or share any personally identifiable information volunteered on the portal to
+                            any third party (public/private). </li><br>
+                        <li>Any information provided to this portal will be protected from loss, misuse, unauthorized
+                            access or disclosure, alteration, or destruction.</li><br>
+                    </ul>
+                </div>
+            </div>
+            <footer class="footer">
+                <ul class="footer-menu">
+                    <li class="footer-item" data-li="term-condition">
+                        <a href="#" class="footer-link">Terms of Use</a>
+                    </li>
+                    <li class="footer-item" data-li="privacy-policy">
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                    </li>
+                    <li class="footer-item" data-li="acknowledgement">
+                        <a href="#" class="footer-link">Acknowledgement</a>
+                    </li>
+                    <li class="footer-item" data-li="Report">
+                        <a href="#" class="footer-link">Report a Risk</a>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+
+        <div class="item acknowledgement" style="display: none;">
+            <div class="portal-policy-home">
+                <div class="portal-policy-title">
+                    Acknowledgement
+                </div>
+                <div class="portal-policy-content">
+                    <ul class="terms-item">
+                        <li>We greatly acknowledge the National Register of Large Dams (NRLD) - 2019 data provided by the Central Water Commission of India (CWC), the data provided by Coupled Model Intercomparison Project 6 (CMIP6) and Indian Meteorological Department (IMD), Copernicus. </li><br>
+                        <li>We appreciate the assistance by Anuj Prakash Kushwaha, Water and Climate Lab, IIT Gandhinagar in generating the streamflow data from the VIC model.</li><br>
+                        <br>
+                    </ul>
+                </div>
+            </div>
+            <footer class="footer">
+                <ul class="footer-menu">
+                    <li class="footer-item" data-li="term-condition">
+                        <a href="#" class="footer-link">Terms of Use</a>
+                    </li>
+                    <li class="footer-item" data-li="privacy-policy">
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                    </li>
+                    <li class="footer-item" data-li="acknowledgement">
+                        <a href="#" class="footer-link">Acknowledgement</a>
+                    </li>
+                    <li class="footer-item" data-li="Report">
+                        <a href="#" class="footer-link">Report a Risk</a>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+
+        <!--  Report a Risk -->
+        <div class="item Report" style="display: none;">
+            <div class="portal-policy-home">
+                <div class="portal-policy-title">
+                    Report a Risk
+                </div>
+                <div class="report-risk">
+                    <div class="report-content">
+                        This form is designed for reporting any unusual events in your neighbourhood, such as flooding, droughts, dam leaks, poor water quality, etc. We'll build a database using input from the public to better understand catchment-scale dynamics.
+                    </div>
+                    <form action="#" class="report-form">
+                        <div class="report-form-field">
+                            <div class="report-field">
+                                <input type="text" name="name" placeholder="Name">
+                            </div>
+                            <div class="report-field">
+                                <input type="text" name="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="report-file">
+                            <input type="file" name="file" placeholder="Upload Images">
+                        </div>
+                        <div class="report-message">
+                            <textarea placeholder="Report a risk" name="message"></textarea>
+                        </div>
+                        <div class="report-button-area">
+                            <button type="submit">Report Risk</button>
+                            <span></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <footer class="footer">
+                <ul class="footer-menu">
+                    <li class="footer-item" data-li="term-condition">
+                        <a href="#" class="footer-link">Terms of Use</a>
+                    </li>
+                    <li class="footer-item" data-li="privacy-policy">
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                    </li>
+                    <li class="footer-item" data-li="acknowledgement">
+                        <a href="#" class="footer-link">Acknowledgement</a>
+                    </li>
+                    <li class="footer-item" data-li="Report">
+                        <a href="#" class="footer-link">Report a Risk</a>
+                    </li>
+                </ul>
+            </footer>
+
+        </div>
+
+
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+</html>

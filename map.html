@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoID | Dams</title>
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri&family=Ubuntu&family=Work+Sans&display=swap"
+        rel="stylesheet">
+    <!-- Leaflet style -->
+    <link rel="stylesheet" href="leaflet.css">
+    <!-- https://unpkg.com/leaflet@1.7.1/dist/leaflet.css -->
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="responsive.css">
+
+</head>
+
+<body>
+    <main>
+        <div class="dam-list">
+            <div class="heading">
+                <h2>Indian Dams</h2>
+                <button class="BackButton"><a href="index.html">&laquo; Back</a></button>
+            </div>
+
+            <div class="select-heading">
+                Select Dam List
+            </div>
+            <button class="classifyButton"><a href="StateWiseMap.html"><span>State Wise </span></a></button>
+            <button class="classifyButton"><a href="BasinWiseMap.html"><span>Basin Wise </span></a></button>
+
+            <button class="user-guide"><a href="Manual.pdf" target="_blank"><span>User Guide</span></a></button>
+        </div>
+        
+
+        <div id="map" class="map"></div>
+
+        <button id="coordinateButton" title="Shows coordinates of the mouse pointer on map">
+            <div class="coordinate">
+        </div></button>
+    </main>
+
+
+
+
+
+    <!-- Leaflet script -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="Control.FullScreen.js"></script>
+    <!-- Search Bar -->
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <!-- Dams File -->
+    <script src="AllDamsOnly.js"></script>
+    <!-- jQuery -->
+    <script src="jquery-3.2.1.min.js"></script>
+    <!--display coordnates  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <!-- Map Script -->
+    <script>
+        function setInitialMapZoom() {
+            var viewportWidth = window.innerWidth;
+            var mapZoom;
+            if (viewportWidth < [768]) {
+                mapZoom = [4];
+            }
+            else {
+                mapZoom = [5];
+            }
+            return mapZoom;
+        }
+        var lat = 22.9074872;
+        var lng = 79.07306671;
+        var googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+        });
+        var map = L.map('map', {
+            layers: [googleStreets],
+            tap: false,
+            center: new L.LatLng(lat, lng),
+            zoom: setInitialMapZoom(),
+            fullscreenControl: true,
+            fullscreenControlOptions: { // optional
+                title: "Show me the fullscreen !",
+                titleCancel: "Exit fullscreen mode"
+            }
+        });
+
+
+        // Add all the dams in map
+        function onEachFeature(feature, layer) {
+            layer.bindPopup();
+        }
+        var damsLayer = L.geoJSON(AllDamsOnly, {
+            onEachFeature: onEachFeature,
+            pointToLayer: function (feature, latlng) {
+                return L.circle(latlng, {
+                    interactive: false,
+                    color: 'red'
+                });
+            }
+        });
+        damsLayer.addTo(map);
+
+        // map coordinate function
+        map.on('mousemove', function (e) {
+            $('.coordinate').html(`Lat: ${e.latlng.lat.toFixed(3)} Lng: ${e.latlng.lng.toFixed(3)}`)
+        })
+        // map scale
+        L.control.scale({ position: 'bottomright' }).addTo(map);
+
+        // topo map layer start
+        var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png');
+        OpenTopoMap.addTo(map);
+
+        // Google Hybrid map layer
+        var googleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+        });
+        googleHybrid.addTo(map);
+
+        // Google Satellite map layer
+        var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+        });
+        googleSat.addTo(map);
+
+
+        // layer control
+        var baseLayers = {
+            "Google Map": googleStreets,
+            "Topography Map": OpenTopoMap,
+            "Hybrid Map": googleHybrid,
+            "Satellite Map": googleSat
+        };
+        var overlays = {
+            // overlay layer
+            // River basin layer
+        };
+        L.control.layers(baseLayers, overlays).addTo(map);
+
+        // Search Feature
+        L.Control.geocoder().addTo(map);
+
+        // User Mannual
+        function openNav() {
+            var mq = window.matchMedia("(max-width: 768px)");
+            if (mq.matches) {
+                document.getElementById("mySidenav").style.width = "100%";
+            }
+            else {
+                document.getElementById("mySidenav").style.width = "20%";
+            }
+        }
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+    </script>
+
+</body>
+
+</html>

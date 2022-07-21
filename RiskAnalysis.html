@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoID | Risk Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri&family=Ubuntu&family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    
+</head>
+<body>
+    <main>
+        <div class="dam-list">
+            <div class="heading">
+                <h2>Indian Dams Risk Analysis</h2>
+                <button class="BackButton"><a href="index.html" >&laquo; Back</a></button>
+            </div>
+            <button class="classifyButton"><a href="IndividualDamRiskAnalysis.html"><span>Individual Dam Risk Analysis </span></a></button>
+            <button class="user-guide"><a href="Manual.pdf" target="_blank"><span>User Guide</span></a></button>
+        </div>
+        <div class="risk-analysis">
+            <div class="container">
+                <div class="mySlides">
+                  <div class="numbertext">1 / 5</div>
+                  <img src="risk-analysis/1.png" style="width:90%">
+                </div>
+              
+                <div class="mySlides">
+                  <div class="numbertext">2 / 5</div>
+                  <img src="risk-analysis/2.png" style="width:90%">
+                </div>
+              
+                <div class="mySlides">
+                  <div class="numbertext">3 / 5</div>
+                  <img src="risk-analysis/3.png" style="width:90%">
+                </div>
+                  
+                <div class="mySlides">
+                  <div class="numbertext">4 / 5</div>
+                  <img src="risk-analysis/4.png" style="width:90%">
+                </div>
+
+                <div class="mySlides">
+                  <div class="numbertext">5 / 5</div>
+                  <img src="risk-analysis/5.png" style="width:90%">
+                </div>
+              
+                  
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+              
+                <div class="caption-container">
+                  <p id="caption"></p>
+                </div>
+              
+                <div class="row">
+                  <div class="column">
+                    <img class="demo" src="risk-analysis/1.png" style="width:100%" onclick="currentSlide(1)" alt="Projected change in risk as per CMIP6 SSP585 scenerio.">
+                  </div>
+                  <div class="column">
+                    <img class="demo" src="risk-analysis/2.png" style="width:100%" onclick="currentSlide(2)" alt="Projected change in risk as per CMIP6 SSP585 scenerio.">
+                  </div>
+                  <div class="column">
+                    <img class="demo" src="risk-analysis/3.png" style="width:100%" onclick="currentSlide(3)" alt="Projected change in risk as per CMIP6 SSP585 scenerio.">
+                  </div>
+                  <div class="column">
+                    <img class="demo" src="risk-analysis/4.png" style="width:100%" onclick="currentSlide(4)" alt="Projected change in risk as per CMIP6 SSP585 scenerio.">
+                  </div>
+
+                  <div class="column">
+                    <img class="demo" src="risk-analysis/5.png" style="width:100%" onclick="currentSlide(5)" alt="Projected change in risk as per CMIP6 SSP585 scenerio.">
+                  </div>
+                </div>
+              </div>
+        </div>
+    </main>
+    <script>
+      // Slideshow
+        let slideIndex = 1;
+        showSlides(slideIndex);
+      
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("demo");
+          let captionText = document.getElementById("caption");
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active-img", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active-img";
+          captionText.innerHTML = dots[slideIndex-1].alt;
+        }
+        // User Mannual
+        function openNav() {
+            var mq = window.matchMedia( "(max-width: 768px)" );
+            if (mq.matches) {
+                document.getElementById("mySidenav").style.width = "100%";
+            }
+            else {
+                document.getElementById("mySidenav").style.width = "20%";
+            }
+        }
+        function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+</body>
+</html>
