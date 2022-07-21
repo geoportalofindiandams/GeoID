@@ -17,7 +17,6 @@ function closeMenu() {
     navMenu.classList.remove("active");
 }
 
-
 // Sections
 var li_elements = document.querySelectorAll(".navbar ul li");
 var item_elements = document.querySelectorAll(".item");
@@ -42,7 +41,6 @@ for (var i = 0; i < li_elements.length; i++) {
     }
   });
 }
-
 
 // Footer Sections
 var footer_elements = document.querySelectorAll(".footer ul li");
@@ -71,69 +69,40 @@ for (var i = 0; i < footer_elements.length; i++) {
   });
 }
 
-
 // Contact Form
-const form = document.querySelector(".contact-form"),
-statusTxt = form.querySelector(".button-area span");
-form.onsubmit = (e)=>{
-  e.preventDefault();
-  statusTxt.style.color = "#0D6EFD";
-  statusTxt.style.display = "block";
-  statusTxt.innerText = "Sending your message...";
-  form.classList.add("disabled");
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", "contact.php", true);
-  xhr.onload = ()=>{
-    if(xhr.readyState == 4 && xhr.status == 200){
-      let response = xhr.response;
-      if(response.indexOf("required") != -1 || response.indexOf("valid") != -1 || response.indexOf("failed") != -1){
-        statusTxt.style.color = "red";
-      }else{
-        form.reset();
-        setTimeout(()=>{
-          statusTxt.style.display = "none";
-        }, 3000);
-      }
-      statusTxt.innerText = response;
-      form.classList.remove("disabled");
-    }
-  }
-  let formData = new FormData(form);
-  xhr.send(formData);
-}
+const contact_scriptURL = "https://script.google.com/macros/s/AKfycbzfjNNFlBIEPSfM8dejvnYdLMxW7RgEiCINq8Au0fu7Bzu5OdVPaUTPtWdsgXc5KRr-sA/exec";
+const contactForm = document.forms['contactForm']
+const contactMessage= document.getElementById("contact-success-message");
 
+contactForm.addEventListener('submit', e => {
+  e.preventDefault()
+  fetch(contact_scriptURL, { method: 'POST', body: new FormData(contactForm)})
+    .then(response => {
+      contactMessage.innerHTML = "Your message has been sent."
+      setTimeout(function(){
+        contactMessage.innerHTML=""
+      },3000)
+      contactForm.reset()
+    })
+    .catch(error => console.error('Error!', error.message))
+})
 
 
 
 // Report Risk Form
-const form1 = document.querySelector(".report-form"),
-statusTxt1 = form1.querySelector(".report-button-area span");
-form1.onsubmit = (e)=>{
-  e.preventDefault();
-  statusTxt1.style.color = "#0D6EFD";
-  statusTxt1.style.display = "block";
-  statusTxt1.innerText = "Sending your message...";
-  form1.classList.add("disabled");
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", "ReportRisk.php", true);
-  xhr.onload = ()=>{
-    if(xhr.readyState == 4 && xhr.status == 200){
-      let response = xhr.response;
-      if(response.indexOf("required") != -1 || response.indexOf("valid") != -1 || response.indexOf("failed") != -1){
-        statusTxt1.style.color = "red";
-      }else{
-        form1.reset();
-        setTimeout(()=>{
-          statusTxt1.style.display = "none";
-        }, 3000);
-      }
-      statusTxt1.innerText = response;
-      form1.classList.remove("disabled");
-    }
-  }
-  let formData = new FormData(form1);
-  xhr.send(formData);
-}
+const report_scriptURL = "https://script.google.com/macros/s/AKfycbzK8A7obE3yNsDs7981vn8D3f0o-LtfCHJsmOPQNSxztZl_EYdZGIAFgeDJ6Nv8wLuBfQ/exec";
+const reportForm = document.forms['reportForm']
+const reportMessage= document.getElementById("report-success-message");
 
-
-
+reportForm.addEventListener('submit', e => {
+  e.preventDefault()
+  fetch(report_scriptURL, { method: 'POST', body: new FormData(reportForm)})
+    .then(response => {
+      reportMessage.innerHTML = "Your message has been sent."
+      setTimeout(function(){
+        reportMessage.innerHTML=""
+      },3000)
+      reportForm.reset()
+    })
+    .catch(error => console.error('Error!', error.message))
+})

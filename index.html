@@ -164,23 +164,24 @@
         <div class="item Contact" style="display: none;">
             <div class="contact-main-title">Contact Us</div>
             <div class="contact-us">
-                <form action="#" class="contact-form">
+                <form  class="contact-form" name="contactForm">
                     <div class="form-field">
                         <div class="field">
-                            <input type="text" name="name" placeholder="Enter your name">
+                            <input type="text" name="name" placeholder="Enter your name" required>
                         </div>
                         <div class="field">
-                            <input type="text" name="email" placeholder="Enter your email">
+                            <input type="text" name="email" placeholder="Enter your email" required>
                         </div>
                     </div>
                     <div class="message">
-                        <textarea placeholder="Write your message" name="message"></textarea>
+                        <textarea placeholder="Write your message" name="message" required></textarea>
                     </div>
                     <div class="button-area">
                         <button type="submit">Send Message</button>
-                        <span></span>
                     </div>
+                    <span id="contact-success-message" class="success-message"></span>
                 </form>
+                
                 
             </div>
 
@@ -333,25 +334,25 @@
                     <div class="report-content">
                         This form is designed for reporting any unusual events in your neighbourhood, such as flooding, droughts, dam leaks, poor water quality, etc. We'll build a database using input from the public to better understand catchment-scale dynamics.
                     </div>
-                    <form action="#" class="report-form">
+                    <form class="report-form" name="reportForm">
                         <div class="report-form-field">
                             <div class="report-field">
-                                <input type="text" name="name" placeholder="Name">
+                                <input type="text" name="name" placeholder="Name" required>
                             </div>
                             <div class="report-field">
-                                <input type="text" name="email" placeholder="Email">
+                                <input type="text" name="email" placeholder="Email" required>
                             </div>
                         </div>
                         <div class="report-file">
                             <input type="file" name="file" placeholder="Upload Images">
                         </div>
                         <div class="report-message">
-                            <textarea placeholder="Report a risk" name="message"></textarea>
+                            <textarea placeholder="Report a risk" name="message" required></textarea>
                         </div>
                         <div class="report-button-area">
                             <button type="submit">Report Risk</button>
-                            <span></span>
                         </div>
+                        <span id="report-success-message" class="success-message"></span>
                     </form>
                 </div>
             </div>
@@ -376,7 +377,6 @@
 
 
     </div>
-
     <script src="main.js"></script>
 
 </body>

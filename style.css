@@ -477,11 +477,12 @@ body{
     cursor: pointer;
     background-position: right center;
   }
-  .button-area span{
+  .success-message{
     font-size: 16px;
     font-family: 'Ubuntu', sans-serif;
     margin-left: 30px;
-    display: none;
+    color: whitesmoke;
+    text-align: left;
   }
 
 
