@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeoID | Dams</title>
+    <title>Dams | GeoID </title>
     <link href="https://fonts.googleapis.com/css2?family=El+Messiri&family=Ubuntu&family=Work+Sans&display=swap"
         rel="stylesheet">
-    <!-- Leaflet style -->
-    <link rel="stylesheet" href="leaflet.css">
-    <!-- https://unpkg.com/leaflet@1.7.1/dist/leaflet.css -->
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="assets/leaflet/leaflet.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 
 </head>
 
@@ -29,10 +24,10 @@
             <div class="select-heading">
                 Select Dam List
             </div>
-            <button class="classifyButton"><a href="StateWiseMap.html"><span>State Wise </span></a></button>
-            <button class="classifyButton"><a href="BasinWiseMap.html"><span>Basin Wise </span></a></button>
+            <button class="classifyButton"><a href="state-wise-map.html"><span>State Wise </span></a></button>
+            <button class="classifyButton"><a href="basin-wise-map.html"><span>Basin Wise </span></a></button>
 
-            <button class="user-guide"><a href="Manual.pdf" target="_blank"><span>User Guide</span></a></button>
+            <button class="user-guide"><a href="assets/Manual.pdf" target="_blank"><span>User Guide</span></a></button>
         </div>
         
 
@@ -43,38 +38,29 @@
         </div></button>
     </main>
 
-
-
-
-
-    <!-- Leaflet script -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="Control.FullScreen.js"></script>
-    <!-- Search Bar -->
+    <script src="assets/leaflet/leaflet.js"></script>
+    <script src="assets/leaflet/Control.FullScreen.js"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-    <!-- Dams File -->
-    <script src="AllDamsOnly.js"></script>
-    <!-- jQuery -->
-    <script src="jquery-3.2.1.min.js"></script>
-    <!--display coordnates  -->
+    <script src="assets/js/AllDamsOnly.js"></script>
+    <script src="assets/js/IndiaState.js"></script>
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <!-- Display Coordinate -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-
-    <!-- Map Script -->
     <script>
         function setInitialMapZoom() {
             var viewportWidth = window.innerWidth;
             var mapZoom;
             if (viewportWidth < [768]) {
                 mapZoom = [4];
-            }
-            else {
+            }else {
                 mapZoom = [5];
             }
             return mapZoom;
         }
-        var lat = 22.9074872;
-        var lng = 79.07306671;
+
+        var lat = 23;
+        var lng = 82;
         var googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
         });
@@ -83,6 +69,7 @@
             tap: false,
             center: new L.LatLng(lat, lng),
             zoom: setInitialMapZoom(),
+            minZoom: 3,
             fullscreenControl: true,
             fullscreenControlOptions: { // optional
                 title: "Show me the fullscreen !",
@@ -129,6 +116,20 @@
         });
         googleSat.addTo(map);
 
+        // Add All States Boundary
+        var AllStatesBoundary = L.geoJSON(AllStatesBoundary, 
+        {
+            fillColor: "none",
+            weight: 2,
+            opacity: 1,
+            color:"black",
+            interactive:false,
+            
+        });
+
+
+
+
 
         // layer control
         var baseLayers = {
@@ -138,8 +139,7 @@
             "Satellite Map": googleSat
         };
         var overlays = {
-            // overlay layer
-            // River basin layer
+            "States Boundaries": AllStatesBoundary,
         };
         L.control.layers(baseLayers, overlays).addTo(map);
 
